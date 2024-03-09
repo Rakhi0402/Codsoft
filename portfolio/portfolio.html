@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Portfolio</title>
+        <link rel="stylesheet" href="port.css">
+    </head>
+    <body>
+        <div id="header">
+            <div id="container">
+                <nav>
+                    <img src="logo.png" class="logo">
+                    <br><br>
+                    <ul>
+                        <li><a href="portfolio.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Project</a></li>
+                        <li><a href="#resume">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>                                     
+                    </ul>
+                </nav>
+                <img src="photo2.jpg" class="photo" align="right" >
+            </div><br>
+            
+            <div class="text">
+                
+                <p>Web Developer</p>
+                <h1>Hi, I'm <span>Rakhi</span> Kumari.</h1>           
+            </div>
+        </div><br><br>
+        <!-----------------about------------->
+        <div id="about">
+            <div id="container">
+                <div class="row">
+                    <div class="about-1">
+                        <img src="photo2.jpg" >
+                    </div>
+                    <div class="about-2">
+                        <h1 class="subtitle">About Me</h1>
+                        <p>I am Rakhi Kumari. I am Currently pursuing B.Tech in Computer Science and Engineerng.
+                            I am enthusiastic about learnng new technology and implementing them in solving the real world problems.
+                            I love to explore more of technologies and use them for further development and exploration into the world of technology and computer Science.
+                        </p>
+                        <div class="tabs">
+                            <p class="links active" onclick="opentab('skills')">Skills</p>
+                            
+                            <p class="links" onclick="opentab('Education')">Education</p>
+                        </div>
+                        <div class="contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Web Development</span><br>website and apps designing and development<br>using HTML, CSS, Javascript and MERN</li>
+                                <li><span>Photoshop</span><br>Poster designing and editing.</li>
+                                <li><span>Programming languages</span><br>C, C++, Java and  Python.</li>
+                                <li><span>Developer Tools</span><br>Visual Studio Code, Git</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contents" id="Education">
+                            <ul>
+                                <li><span>2022-Present</span><br>National Institute of Technology,Kurukshetra <br>Pursiung B.Tech in Computer Science and Engineering<br></li>
+                                <li><span>2022</span><br>Gaya College, Gaya,Bihar<br>Intermediate of Science, BSEB<br>Percentage : 85.00%</li>
+                                <li><span>2020</span><br>Gurukul, Gaya, Bihar<br>High School, CBSE<br>Percentage : 95.80%</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <!-----------------Projects------------->
+        <div id="projects">
+            <div id="container">
+                <h1 class="subtitle">My Projects</h1>
+                <div class="project-list">
+                    
+                    <ul>
+                        <li><span>Tip Calculator</span><br>This is a calculator used for calculating the tip to be given.<br> It  takes total bill amount and service rating as input and calculates the tip.
+                        </li>                     
+                        <li><span>Fitness Website</span><br>Website for exercise tips and its benefits</li>
+                        <li><span>Personal Prtfolio</span><br>MyPersonal Portfolio website</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div><br><br>
+        <!-------------Portfolio and Contacts------------->
+        <section class="resume-contact">
+            <div id="resume">
+                <div id="container">
+                    <h1 class="subtitle">My Portfolio</h1>
+                    <br><br>
+                    <p>Have a look at my Resume<br></p> <br><br>
+                    <a href="resume.pdf" download> Download Here </a> <br><br>
+                </div>                         
+            </div><br>
+            <div id="contact">
+                <div id="container">
+                    <h1 class="subtitle">Reach out to Me</h1>
+                    <br><br>
+                    <p>Contact me for Hiring!<br></p> <br><br>
+                    <p><img src="phone.png" class="icon">  +91-7479471544</p><br>              
+                    <p><img src="email.png" class="icon">  rakhiues04@gmail.com</p><br>
+                    <p><img src="linkedin.png" class="icon">  Rakhi Kumari</p> <br>
+                    <p><img src="git.png" class="icon">  Rakhi0402</p><br>                
+                </div>               
+            </div>
+
+        </section>
+        <footer> <b>&copy; All Rights Reserved</b></footer>
+       
+        <script>
+            var links = document.getElementsByClassName("links");
+            var contents=document.getElementsByClassName("contents");
+
+            function opentab(name)
+            {
+                for(link of links){
+                    link.classList.remove("active");
+                }
+                for(content of contents){
+                    content.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active");
+                document.getElementById(name).classList.add("active-tab");
+
+            }
+        </script>
+        
+    </body>
+</html>
