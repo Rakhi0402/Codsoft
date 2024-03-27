@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+<style>
+    *{
+        font-family: roboto;
+    }
+    body {
+        background:url(images.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+    h1{
+        color:#fff;
+        font-family: roboto;
+        font-weight: bold;
+        font-size: 40px;
+        text-align: center;
+        margin-top:40px;
+        background-color: rgba(11, 9, 9, 0.619);
+    }
+    .calculator{
+        background-color: rgb(0, 0, 0);
+        max-width: 300px;
+        margin:auto;
+        align-items: center;
+        padding:20px auto;
+        border-radius: 20px;
+        box-shadow: 5px 5px rgba(206, 134, 134, 0.799) ;
+    }
+    .row{
+        margin:0;
+        display:flex;
+    }
+    .button{
+        background-color: rgba(248, 183, 103, 0.884);
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular';
+        color: rgb(13, 13, 14);
+        box-shadow:5px 5px white;
+    }
+    .row,.button{
+        padding:20px;
+        border-radius: 50px;
+        display:flex;
+        margin:auto;
+        
+    }
+    .op{
+        background-color: rgba(128, 255, 0, 0.715);
+    }
+    #clear{
+        background-color: rgba(0, 221, 255, 0.632);
+    }
+    
+    .input{
+        padding:20px;
+        border: 2px solid grey;
+        border-radius: 9px;
+        font-size: 18px;
+        font-weight: 200;
+        box-shadow: 5px 5px rgb(181, 60, 60);
+    }
+   
+</style>
+</head>
+<body>
+    <h1> Simple Calculator</h1>
+
+<div class="calculator ">
+    <div class="row">
+        <input class="input" type="text">
+    </div>
+    <button class="button op" id="clear" align="left">C</button>
+
+    <div class="row">
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button op">*</button>
+    </div>
+    <div class="row">
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button op">/</button>
+    </div>
+    <div class="row">
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button op">+</button>
+    </div>
+    <div class="row">
+        <button class="button">0</button>
+        <button class="button op">.</button>
+        <button class="button op" id="calculate">=</button>
+        <button class="button op">-</button>
+        
+    </div>
+    
+</div>
+<script>
+    let string="";
+    let buttons = document.querySelectorAll('.button');
+    Array.from(buttons).forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            if(e.target.id === "calculate") {
+                try {
+                    let result = eval(string);
+                    if (isNaN(result)) {
+                        throw new Error("Invalid input!"); 
+                    }
+                    string = result;
+                    document.querySelector('input').value = string; 
+                } catch(error) {
+                    alert(error.message); 
+                    string = "";
+                    document.querySelector('input').value = ""; 
+                }
+            } else if(e.target.id === "clear") { 
+                string = "";
+                document.querySelector('input').value = ""; 
+            } else {
+                console.log(e.target);
+                string = string + e.target.innerHTML;
+                document.querySelector('input').value = string; 
+            }
+        })
+    });
+</script>
+
+</body>
+</html>
